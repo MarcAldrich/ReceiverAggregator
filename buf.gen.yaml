@@ -1,0 +1,20 @@
+version: v1
+plugins:
+  - plugin: buf.build/grpc-ecosystem/openapiv2:v2.19.0
+    out: ./proto/gen
+    opt:
+      - grpc_api_configuration=proto/devicecontrol/v0/devicecontrol.yaml
+  - plugin: buf.build/grpc-ecosystem/gateway:v2.19.0
+    out: ./proto/gen
+    opt:
+      - paths=source_relative
+      #- grpc_api_configuration=proto/devicecontrol/v0/devicecontrol.yaml
+  # dependencies
+  - plugin: buf.build/protocolbuffers/go
+    out: ./proto/gen
+    opt:
+      - paths=source_relative
+  - plugin: buf.build/grpc/go
+    out: ./proto/gen
+    opt:
+      - paths=source_relative

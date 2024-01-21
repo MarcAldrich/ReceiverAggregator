@@ -1,0 +1,8 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: receiveraggregator.devicecontrol.v0.DeviceControl.Echo
+      post: /v0/example/echo
+      body: "*"

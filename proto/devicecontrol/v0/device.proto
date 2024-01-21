@@ -1,0 +1,12 @@
+syntax = "proto3";
+package receiveraggregator.devicecontrol.v0;
+
+option go_package = "github.com/MarcAldrich/ReceiverAggregator/proto/gen/go/receiveraggregator/devicecontrol/v0";
+
+message StringMessage {
+  string value = 1;
+}
+
+service DeviceControl {
+  rpc Echo(StringMessage) returns (StringMessage) {}
+}
